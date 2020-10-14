@@ -15,9 +15,8 @@ public class SpawnerSample : MonoBehaviour
 
     void SpawnObject(int angle, int radius)
     {
-        Vector3 spawnPosition = transform.position;
         Vector3 direction = Quaternion.Euler(0, angle, 0) * Vector3.right;
-        spawnPosition = transform.position + direction * radius;
+        Vector3 spawnPosition = transform.position + direction * radius;
         Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
     }
 }
