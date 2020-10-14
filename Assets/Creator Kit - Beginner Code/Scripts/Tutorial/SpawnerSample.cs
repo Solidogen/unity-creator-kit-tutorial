@@ -7,21 +7,17 @@ public class SpawnerSample : MonoBehaviour
 
     void Start()
     {
-        int angle = 15;
+        SpawnObject(angle: 0, radius: 3);
+        SpawnObject(angle: 45, radius: 4);
+        SpawnObject(angle: 90, radius: 5);
+        SpawnObject(angle: 180, radius: 6);
+    }
+
+    void SpawnObject(int angle, int radius)
+    {
         Vector3 spawnPosition = transform.position;
-
         Vector3 direction = Quaternion.Euler(0, angle, 0) * Vector3.right;
-        spawnPosition = transform.position + direction * 2;
-        Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
-
-        angle = 55;
-        direction = Quaternion.Euler(0, angle, 0) * Vector3.right;
-        spawnPosition = transform.position + direction * 2;
-        Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
-
-        angle = 95;
-        direction = Quaternion.Euler(0, angle, 0) * Vector3.right;
-        spawnPosition = transform.position + direction * 2;
+        spawnPosition = transform.position + direction * radius;
         Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
     }
 }
